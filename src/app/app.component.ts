@@ -14,13 +14,23 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    },
-    {
-      title: 'List',
+    }, {
+      title: 'Catálogo de Fornecedores',
       url: '/list',
       icon: 'list'
-    }
-  ];
+    }, {
+      title: 'Meus postos',
+      url: '/list',
+      icon: 'list'
+    }, {
+      title: 'Auditoria',
+      url: '/list',
+      icon: 'list'
+    }, {
+      title: 'Suporte',
+      url: '/list',
+      icon: 'list'
+    }];
 
   constructor(
     private platform: Platform,
