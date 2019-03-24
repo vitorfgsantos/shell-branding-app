@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
@@ -17,7 +17,8 @@ export class TakePhotoPage implements OnInit {
     private camera: Camera,
     private geolocation: Geolocation,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public loadingController: LoadingController
   ) { }
 
   coords: any = false;
@@ -79,24 +80,34 @@ export class TakePhotoPage implements OnInit {
   }
 
   async goToAuditPage() {
-    let items = JSON.parse(localStorage.items);
-    const index = items.findIndex(item => item.key === this.activatedRoute.snapshot.paramMap.get('key'));
-    items[index].status = 'ok';
 
-    localStorage.items = JSON.stringify(items);
-
-    const alert = await this.alertController.create({
-      header: 'Sucesso!',
-      message: 'Para confirmar a autencidade de suas fotos, precisamos de sua geolocalização.',
-      buttons: [{
-        text: 'OK',
-        handler: () => {
-          this.router.navigate(['/audit/pista/']);
-        }
-      }]
+    const loading = await this.loadingController.create({
+      message: 'Enviando foto...',
+      duration: 1000
     });
+    await loading.present();
 
-    alert.present();
+    setTimeout(async () => {
+      let items = JSON.parse(localStorage.items);
+      const index = items.findIndex(item => item.key === this.activatedRoute.snapshot.paramMap.get('key'));
+      items[index].status = 'ok';
+
+      localStorage.items = JSON.stringify(items);
+
+      const alert = await this.alertController.create({
+        header: 'Sucesso!',
+        message: 'Para confirmar a autencidade de suas fotos, precisamos de sua geolocalização.',
+        buttons: [{
+          text: 'OK',
+          handler: async () => {
+            this.router.navigate(['/audit/pista/']);
+          }
+        }]
+      });
+
+      alert.present();
+    }, 1000);
+
   }
 
 }
