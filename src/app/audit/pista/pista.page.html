@@ -9,30 +9,30 @@
 
 <ion-content>
 
-  <!-- <ion-button color="dark" (click)="getPicture()">Dark</ion-button> -->
-
   <ion-list>
-    <ion-list>
-      <ion-list-header class="hydrated">
-        LAYOUT
-      </ion-list-header>
-      <ion-item *ngFor="let item of items" (click)="takePhoto(item)">
-        <ion-thumbnail slot="start">
-          <ion-img *ngIf="item.status !== 'ok'"
-            src="https://upload.wikimedia.org/wikipedia/sco/thumb/e/e8/Shell_logo.svg/1105px-Shell_logo.svg.png">
-          </ion-img>
-          <ion-img *ngIf="item.status === 'ok'" src="/assets/audit/checked.png">
-          </ion-img>
-        </ion-thumbnail>
-        <ion-label>
-          <h2>{{item.title}}</h2>
-          <!-- <h3>Teste</h3> -->
-          <p>{{item.status === 'ok' ? 'Sua foto foi enviada' : item.description}}</p>
-        </ion-label>
-        <ion-icon name="arrow-forward" *ngIf="getIconByStatus(item) === 'arrow-forward'"></ion-icon>
-        <ion-icon color="success" name="checkmark" *ngIf="getIconByStatus(item) === 'checkmark'"></ion-icon>
-      </ion-item>
-    </ion-list>
+    <ion-list-header class="hydrated">
+      LAYOUT
+    </ion-list-header>
+    <ion-item *ngFor="let item of items" (click)="takePhoto(item)">
+
+      <!-- <div *ngIf="item.key === 'frente-posto'">
+        <ion-list-header>
+          GERAIS
+        </ion-list-header>
+      </div> -->
+
+      <ion-thumbnail slot="start">
+        <ion-img *ngIf="item.status !== 'ok'" [src]="item.img"> </ion-img>
+        <ion-img *ngIf="item.status === 'ok'" src="/assets/audit/checked.png">
+        </ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{item.title}}</h2>
+        <p>{{item.status === 'ok' ? 'Sua foto foi enviada' : item.description}}</p>
+      </ion-label>
+      <ion-icon name="arrow-forward" *ngIf="getIconByStatus(item) === 'arrow-forward'"></ion-icon>
+      <ion-icon color="success" name="checkmark" *ngIf="getIconByStatus(item) === 'checkmark'"></ion-icon>
+    </ion-item>
   </ion-list>
 
 </ion-content>

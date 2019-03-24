@@ -7,7 +7,7 @@ import { STATIONS } from '../../constants';
   styleUrls: ['./stations.page.scss'],
 })
 export class StationsPage implements OnInit {
-  stations: [];
+  stations: any[];
 
   constructor() { }
 

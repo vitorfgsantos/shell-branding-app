@@ -34,6 +34,8 @@ export class TakePhotoPage implements OnInit {
       message: 'Para confirmar a autencidade de suas fotos, precisamos de sua geolocalização.',
       buttons: [{
         text: 'OK',
+        cssClass: 'primary',
+        role: null,
         handler: () => {
 
           setTimeout(() => {
@@ -73,7 +75,7 @@ export class TakePhotoPage implements OnInit {
 
     this.camera.getPicture(options).then((imageData) => {
       const base64Image = 'data:image/jpeg;base64,' + imageData;
-      console.log(base64Image);
+      this.goToAuditPage();
     }, (err) => {
       // Handle error
     });
@@ -96,7 +98,7 @@ export class TakePhotoPage implements OnInit {
 
       const alert = await this.alertController.create({
         header: 'Sucesso!',
-        message: 'Para confirmar a autencidade de suas fotos, precisamos de sua geolocalização.',
+        message: 'Você ganhou mais 5 pontos para o Programa Valoriza! =)',
         buttons: [{
           text: 'OK',
           handler: async () => {

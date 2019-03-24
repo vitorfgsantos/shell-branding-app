@@ -15,6 +15,9 @@
     </ion-text>
   </div>
   <ion-list *ngIf="show">
+    <p>
+      Fornecedores mais próximos do seu posto:
+    </p>
     <ion-item *ngFor="let provider of providers" [routerLink]="'/list/'+provider.id">
       <ion-thumbnail slot="start">
         <ion-img [src]="provider.logo"></ion-img>
