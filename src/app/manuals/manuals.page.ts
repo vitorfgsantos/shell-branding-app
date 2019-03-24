@@ -26,7 +26,7 @@ export class ManualsPage implements OnInit {
     //   window.open(pdfLink, '_blank')
     // }
 
-    window.open(pdfLink, '_blank')
+    window.open(pdfLink, '_blank');
   }
 
 }

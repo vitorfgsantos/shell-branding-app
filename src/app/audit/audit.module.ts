@@ -7,12 +7,10 @@ import { IonicModule } from '@ionic/angular';
 
 import { AuditPage } from './audit.page';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: AuditPage
-  }
-];
+const routes: Routes = [{
+  path: '',
+  component: AuditPage
+}];
 
 @NgModule({
   imports: [

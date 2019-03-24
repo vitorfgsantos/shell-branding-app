@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'audit/pista', loadChildren: './audit/pista/pista.module#PistaPageModule' },
   { path: 'audit/stations', loadChildren: './audit/stations/stations.module#StationsPageModule' },
   { path: 'audit/pista/:id', loadChildren: './audit/pista/pista.module#PistaPageModule' },
-  { path: 'audit/pista/take-photo', loadChildren: './audit/pista/take-photo/take-photo.module#TakePhotoPageModule' },
+  { path: 'audit/pista/take-photo/:key', loadChildren: './audit/pista/take-photo/take-photo.module#TakePhotoPageModule' },
   { path: 'audit/select', loadChildren: './audit/select/select.module#SelectPageModule' },
   { path: 'manuals', loadChildren: './manuals/manuals.module#ManualsPageModule' },
   { path: 'stations', loadChildren: './stations/stations.module#StationsPageModule' },
