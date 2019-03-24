@@ -11,13 +11,15 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
+    <ion-list>
+      <ion-item *ngFor="let provider of providers" [routerLink]="'/list/'+provider.id">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="provider.logo"></ion-img>
+        </ion-thumbnail>
+        <ion-label>{{provider.name}}</ion-label>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
   </ion-list>
   <!--
     <div *ngIf="selectedItem" padding>
