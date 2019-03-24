@@ -15,49 +15,44 @@ export class PistaPage implements OnInit {
   ) { }
 
   items: any[];
-
   ngOnInit() {
-    this.items = [{
-      key: 'spreader',
-      title: 'Spreader',
-      description: 'Envie uma foto do Spreader',
-      status: 'ok'
-    }, {
-      key: 'pecten',
-      title: 'Pecten',
-      description: 'Envie uma foto do Pecten',
-      status: 'waiting'
-    }, {
-      key: 'testeira',
-      title: 'Testeira',
-      description: 'Envie uma foto do Testeira',
-      status: 'waiting'
-    }, {
-      key: 'sentinela',
-      title: 'Sentinela',
-      description: 'Envie uma foto do Sentinela',
-      status: 'waiting'
-    }, {
-      key: 'spreader',
-      title: 'Spreader',
-      description: 'Envie uma foto do Spreader',
-      status: 'waiting'
-    }, {
-      key: 'spreader',
-      title: 'Spreader',
-      description: 'Envie uma foto do Spreader',
-      status: 'waiting'
-    }, {
-      key: 'spreader',
-      title: 'Spreader',
-      description: 'Envie uma foto do Spreader',
-      status: 'waiting'
-    }, {
-      key: 'spreader',
-      title: 'Spreader',
-      description: 'Envie uma foto do Spreader',
-      status: 'waiting'
-    }];
+
+  }
+
+  ionViewWillEnter() {
+    this.getItems();
+  }
+
+  getItems() {
+    if (localStorage.items) {
+      this.items = JSON.parse(localStorage.items);
+    } else {
+      this.items = [{
+        key: 'spreader',
+        title: 'Spreader',
+        description: 'Envie uma foto do Spreader',
+        status: 'waiting'
+      }, {
+        key: 'pecten',
+        title: 'Pecten',
+        description: 'Envie uma foto do Pecten',
+        status: 'waiting'
+      }, {
+        key: 'testeira',
+        title: 'Testeira',
+        description: 'Envie uma foto do Testeira',
+        status: 'waiting'
+      }, {
+        key: 'sentinela',
+        title: 'Sentinela',
+        description: 'Envie uma foto do Sentinela',
+        status: 'waiting'
+      }];
+    }
+
+    if (!localStorage.items) {
+      localStorage.items = JSON.stringify(this.items);
+    }
   }
 
   getIconByStatus(item) {
@@ -69,10 +64,7 @@ export class PistaPage implements OnInit {
   }
 
   takePhoto(item) {
-    this.navCtrl.navigateForward('/audit/pista/take-photo');
-    
-    // push('/);
-    // this.router.navigate(['/audit/pista/take-photo']);
+    this.router.navigate(['/audit/pista/take-photo/' + item.key]);
   }
 
 }

@@ -33,7 +33,7 @@
 
     </ion-list>
 
-    <img src="/assets/audit/maps.png">
+    <img style="width: 100%;" src="/assets/audit/maps.png" *ngIf="coords">
 
     <ion-fab vertical="bottom" horizontal="center" slot="fixed">
       <ion-fab-button color="danger" (click)="openCamera()">

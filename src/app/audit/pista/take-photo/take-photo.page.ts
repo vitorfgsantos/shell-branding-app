@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -14,10 +15,12 @@ export class TakePhotoPage implements OnInit {
   constructor(
     public alertController: AlertController,
     private camera: Camera,
-    private geolocation: Geolocation
+    private geolocation: Geolocation,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
-  coords: any;
+  coords: any = false;
   base64Image: String;
 
   ngOnInit() {
@@ -27,17 +30,24 @@ export class TakePhotoPage implements OnInit {
   async showGeolocationAlert() {
     const alert = await this.alertController.create({
       header: 'Geolocalização',
-      subHeader: 'Teste',
       message: 'Para confirmar a autencidade de suas fotos, precisamos de sua geolocalização.',
-      buttons: ['OK']
+      buttons: [{
+        text: 'OK',
+        handler: () => {
+
+          setTimeout(() => {
+            this.loadGeolocation();
+          }, 500);
+
+        }
+      }],
     });
 
-    alert.present().then(() => {
-      this.loadGeolocation();
-    });
+    alert.present();
   }
 
   loadGeolocation() {
+    this.coords = [];
     this.geolocation.getCurrentPosition()
       .then(resp => {
         this.coords = resp.coords;
@@ -48,6 +58,11 @@ export class TakePhotoPage implements OnInit {
   }
 
   openCamera() {
+    if (!window.cordova) {
+      this.goToAuditPage();
+      return;
+    }
+
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -56,13 +71,32 @@ export class TakePhotoPage implements OnInit {
     };
 
     this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
       const base64Image = 'data:image/jpeg;base64,' + imageData;
       console.log(base64Image);
     }, (err) => {
       // Handle error
     });
+  }
+
+  async goToAuditPage() {
+    let items = JSON.parse(localStorage.items);
+    const index = items.findIndex(item => item.key === this.activatedRoute.snapshot.paramMap.get('key'));
+    items[index].status = 'ok';
+
+    localStorage.items = JSON.stringify(items);
+
+    const alert = await this.alertController.create({
+      header: 'Sucesso!',
+      message: 'Para confirmar a autencidade de suas fotos, precisamos de sua geolocalização.',
+      buttons: [{
+        text: 'OK',
+        handler: () => {
+          this.router.navigate(['/audit/pista/']);
+        }
+      }]
+    });
+
+    alert.present();
   }
 
 }
