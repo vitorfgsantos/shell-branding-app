@@ -20,15 +20,19 @@ export class AppComponent {
   }, {
     title: 'Meus postos',
     url: '/list',
-    icon: 'list'
+    icon: 'medal'
   }, {
     title: 'Auditoria',
     url: '/audit',
-    icon: 'list'
+    icon: 'megaphone'
+  }, {
+    title: 'Manuais',
+    url: '/manuals',
+    icon: 'book'
   }, {
     title: 'Suporte',
     url: '/list',
-    icon: 'list'
+    icon: 'chatbubbles'
   }];
 
   constructor(
