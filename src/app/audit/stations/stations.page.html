@@ -1,35 +1,28 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Auditoria</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-  
-    <h2> Selecione seu posto: </h2>
-  
-    <ion-card (click)="onClick()">
-      <img src="http://inovacon.ind.br/wp-content/uploads/2017/08/tim.jpg">
-      <ion-card-header>
-        <ion-card-subtitle>São Paulo</ion-card-subtitle>
-        <ion-card-title>Posto da Vila Ipiranga</ion-card-title>
-      </ion-card-header>
-  
-      <ion-card-content>
-        Av. Vila Ema, 257, São Paulo
-      </ion-card-content>
-    </ion-card>
-  
-    <ion-card (click)="onClick()">
-      <img src="http://gruposaodomingos.com.br/site/wp-content/uploads/2014/01/FJS_7574.jpg">
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
-  
-      <ion-card-content>
-        Av. Vila Ema, 257, São Paulo
-      </ion-card-content>
-    </ion-card>
-  
-  </ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Auditoria
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card routerLink="/audit/pista">
+    <img src="/assets/audit/pista.jpg">
+    <ion-card-header>
+      <ion-card-title text-center>Pista</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card routerLink="/audit/select">
+    <img src="/assets/audit/select.jpg">
+    <ion-card-header>
+      <ion-card-title text-center>Loja Select</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

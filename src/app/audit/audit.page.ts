@@ -16,24 +16,21 @@ export class AuditPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.onTabClick('pending');
   }
 
   onTabClick(tab) {
     this.tab = tab;
 
-    this.pendingList = [
-      {
-        id: 1,
-        title: 'Auditoria 24/03/2019'
-      }
-    ]
+    this.pendingList = [{
+      id: 1,
+      title: 'Auditoria 24/03/2019'
+    }];
 
-    this.completedList = [
-      {
-        id: 1,
-        title: 'Auditoria 20/03/2019'
-      }
-    ]
+    this.completedList = [{
+      id: 1,
+      title: 'Auditoria 20/03/2019'
+    }];
   }
 
 }

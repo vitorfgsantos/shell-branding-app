@@ -19,7 +19,7 @@ export class AppComponent {
     icon: 'list'
   }, {
     title: 'Meus postos',
-    url: '/list',
+    url: '/stations',
     icon: 'medal'
   }, {
     title: 'Auditoria',

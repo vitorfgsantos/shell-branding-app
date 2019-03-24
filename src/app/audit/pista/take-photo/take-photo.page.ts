@@ -41,7 +41,6 @@ export class TakePhotoPage implements OnInit {
     this.geolocation.getCurrentPosition()
       .then(resp => {
         this.coords = resp.coords;
-        debugger
       })
       .catch((error) => {
         console.log('Error getting location', error);
