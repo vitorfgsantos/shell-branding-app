@@ -1,9 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>rewards</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Programa Valoriza
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div class="tabs">
+      <button class="tab" (click)="onTabClick('stations')">Meus Postos</button>
+      <button class="tab" (click)="onTabClick('rankingData')">Ranking</button>
+    </div>
+    <div>
+      <div *ngIf="tab == 'stations'">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>800</ion-card-title>
+            <ion-card-subtitle>pontos</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+        <ion-list>
+          <ion-item *ngFor="let station of stations" [routerLink]="'/stations/'+station.id">
+            <ion-text slot="start">{{station.ranking}}º</ion-text>
+            <ion-label>{{station.name}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div *ngIf="tab == 'rankingData'">
+        <ion-list>
+          <ion-item *ngFor="let ranking of rankings">
+            <ion-text slot="start">{{ranking.ranking}}º</ion-text>
+            <ion-label>{{ranking.name}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>

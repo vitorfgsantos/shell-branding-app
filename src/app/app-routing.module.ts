@@ -30,7 +30,8 @@ const routes: Routes = [
   { path: 'stations', loadChildren: './stations/stations.module#StationsPageModule' },
   { path: 'stations/:id', loadChildren: './stations/details/details.module#DetailsPageModule' },
   { path: 'stations/equipments/:id', loadChildren: './stations/details/equipments/equipments.module#EquipmentsPageModule' },
-  { path: 'rewards', loadChildren: './rewards/rewards.module#RewardsPageModule' }
+  { path: 'rewards', loadChildren: './rewards/rewards.module#RewardsPageModule' },
+  { path: 'support', loadChildren: './support/support.module#SupportPageModule' }
 ];
 
 @NgModule({

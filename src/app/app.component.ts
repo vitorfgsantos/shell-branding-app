@@ -30,8 +30,12 @@ export class AppComponent {
     url: '/manuals',
     icon: 'book'
   }, {
+    title: 'Programa Valoriza',
+    url: '/rewards',
+    icon: 'trophy'
+  }, {
     title: 'Suporte',
-    url: '/list',
+    url: '/support',
     icon: 'chatbubbles'
   }];
 
