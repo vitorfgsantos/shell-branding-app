@@ -20,7 +20,7 @@ export class AppComponent {
   }, {
     title: 'Meus postos',
     url: '/list',
-    icon: 'medal'
+    icon: 'pin'
   }, {
     title: 'Auditoria',
     url: '/audit',

@@ -13,7 +13,9 @@ export class AuditPage implements OnInit {
 
   constructor(
     public navCtrl: NavController
-  ) { }
+  ) {
+    this.tab = 'pending';
+  }
 
   ngOnInit() {
   }

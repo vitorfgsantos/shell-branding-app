@@ -10,21 +10,21 @@
   </ion-header>
 
 <ion-content>
-  <div>
+  <div class="tabs">
     <button class="tab" (click)="onTabClick('pending')">Pendentes</button>
     <button class="tab" (click)="onTabClick('completed')">Concluídos</button>
   </div>
   <div>
-    <div *ngIf="tab === 'pending'">
+    <div *ngIf="tab == 'pending'">
       <ion-list>
-        <ion-item *ngFor="let pending of pendingList" [routerLink]="'/audit/'+pending.id">
+        <ion-item *ngFor="let pending of pendingList" [routerLink]="'/audit/pista/'+pending.id">
           <ion-label>{{pending.title}}</ion-label>
         </ion-item>
       </ion-list>
     </div>
-    <div *ngIf="tab === 'completed'">
+    <div *ngIf="tab == 'completed'">
       <ion-list>
-        <ion-item *ngFor="let completed of completedList" [routerLink]="'/audit/'+completed.id">
+        <ion-item *ngFor="let completed of completedList" [routerLink]="'/audit/pista/'+completed.id">
           <ion-label>{{completed.title}}</ion-label>
         </ion-item>
       </ion-list>
