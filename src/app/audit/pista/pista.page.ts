@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pista',
@@ -9,29 +10,69 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class PistaPage implements OnInit {
 
   constructor(
-    private camera: Camera
+    private router: Router,
+    private navCtrl: NavController
   ) { }
 
+  items: any[];
+
   ngOnInit() {
+    this.items = [{
+      key: 'spreader',
+      title: 'Spreader',
+      description: 'Envie uma foto do Spreader',
+      status: 'ok'
+    }, {
+      key: 'pecten',
+      title: 'Pecten',
+      description: 'Envie uma foto do Pecten',
+      status: 'waiting'
+    }, {
+      key: 'testeira',
+      title: 'Testeira',
+      description: 'Envie uma foto do Testeira',
+      status: 'waiting'
+    }, {
+      key: 'sentinela',
+      title: 'Sentinela',
+      description: 'Envie uma foto do Sentinela',
+      status: 'waiting'
+    }, {
+      key: 'spreader',
+      title: 'Spreader',
+      description: 'Envie uma foto do Spreader',
+      status: 'waiting'
+    }, {
+      key: 'spreader',
+      title: 'Spreader',
+      description: 'Envie uma foto do Spreader',
+      status: 'waiting'
+    }, {
+      key: 'spreader',
+      title: 'Spreader',
+      description: 'Envie uma foto do Spreader',
+      status: 'waiting'
+    }, {
+      key: 'spreader',
+      title: 'Spreader',
+      description: 'Envie uma foto do Spreader',
+      status: 'waiting'
+    }];
   }
 
-  getPicture() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-    };
-
-    this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
-      const base64Image = 'data:image/jpeg;base64,' + imageData;
-      console.log(base64Image);
-    }, (err) => {
-      // Handle error
-    });
+  getIconByStatus(item) {
+    if (item.status === 'waiting') {
+      return 'arrow-forward';
+    } else if (item.status === 'ok') {
+      return 'checkmark';
+    }
   }
 
+  takePhoto(item) {
+    this.navCtrl.navigateForward('/audit/pista/take-photo');
+    
+    // push('/);
+    // this.router.navigate(['/audit/pista/take-photo']);
+  }
 
 }
