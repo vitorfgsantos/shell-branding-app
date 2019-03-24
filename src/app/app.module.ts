@@ -7,8 +7,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Camera } from '@ionic-native/camera/ngx';
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
-    DocumentViewer
+    DocumentViewer,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })

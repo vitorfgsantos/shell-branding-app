@@ -10,19 +10,24 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-card routerLink="/audit/pista">
-    <img src="/assets/audit/pista.jpg">
-    <ion-card-header>
-      <ion-card-title text-center>Pista</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card routerLink="/audit/select">
-    <img src="/assets/audit/select.jpg">
-    <ion-card-header>
-      <ion-card-title text-center>Loja Select</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
+  <div>
+    <button class="tab" (click)="onTabClick('pending')">Pendentes</button>
+    <button class="tab" (click)="onTabClick('completed')">Concluídos</button>
+  </div>
+  <div>
+    <div *ngIf="tab === 'pending'">
+      <ion-list>
+        <ion-item *ngFor="let pending of pendingList" [routerLink]="'/audit/'+pending.id">
+          <ion-label>{{pending.title}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="tab === 'completed'">
+      <ion-list>
+        <ion-item *ngFor="let completed of completedList" [routerLink]="'/audit/'+completed.id">
+          <ion-label>{{completed.title}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-take-photo',
@@ -9,12 +12,43 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class TakePhotoPage implements OnInit {
 
   constructor(
-    private camera: Camera
+    public alertController: AlertController,
+    private camera: Camera,
+    private geolocation: Geolocation
   ) { }
 
-  ngOnInit() {}
+  coords: any;
+  base64Image: String;
 
-  getPicture() {
+  ngOnInit() {
+    this.showGeolocationAlert();
+  }
+
+  async showGeolocationAlert() {
+    const alert = await this.alertController.create({
+      header: 'Geolocalização',
+      subHeader: 'Teste',
+      message: 'Para confirmar a autencidade de suas fotos, precisamos de sua geolocalização.',
+      buttons: ['OK']
+    });
+
+    alert.present().then(() => {
+      this.loadGeolocation();
+    });
+  }
+
+  loadGeolocation() {
+    this.geolocation.getCurrentPosition()
+      .then(resp => {
+        this.coords = resp.coords;
+        debugger
+      })
+      .catch((error) => {
+        console.log('Error getting location', error);
+      });
+  }
+
+  openCamera() {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
