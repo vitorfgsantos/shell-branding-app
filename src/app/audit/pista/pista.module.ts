@@ -21,6 +21,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [PistaPage]
+  declarations: [
+    PistaPage
+  ],
+  entryComponents: []
 })
-export class PistaPageModule {}
+export class PistaPageModule { }
