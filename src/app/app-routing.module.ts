@@ -27,7 +27,10 @@ const routes: Routes = [
   { path: 'audit/pista/take-photo', loadChildren: './audit/pista/take-photo/take-photo.module#TakePhotoPageModule' },
   { path: 'audit/select', loadChildren: './audit/select/select.module#SelectPageModule' },
   { path: 'manuals', loadChildren: './manuals/manuals.module#ManualsPageModule' },
-  { path: 'stations', loadChildren: './stations/stations.module#StationsPageModule' }
+  { path: 'stations', loadChildren: './stations/stations.module#StationsPageModule' },
+  { path: 'stations/:id', loadChildren: './stations/details/details.module#DetailsPageModule' },
+  { path: 'stations/equipments/:id', loadChildren: './stations/details/equipments/equipments.module#EquipmentsPageModule' },
+  { path: 'rewards', loadChildren: './rewards/rewards.module#RewardsPageModule' }
 ];
 
 @NgModule({
