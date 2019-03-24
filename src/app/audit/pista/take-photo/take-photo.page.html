@@ -1,89 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>take-photo</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Enviar foto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-content>
-        <!-- fab placed to the top end -->
-        <ion-fab vertical="top" horizontal="end" slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      
-        <!-- fab placed to the bottom end -->
-        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="arrow-dropleft"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      
-        <!-- fab placed to the top start -->
-        <ion-fab vertical="top" horizontal="start" slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="arrow-dropright"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      
-        <!-- fab placed to the bottom start -->
-        <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="arrow-dropup"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      
-        <!-- fab placed to the (vertical) center and start -->
-        <ion-fab vertical="center" horizontal="start" slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="share"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      
-        <!-- fab placed to the (vertical) center and end -->
-        <ion-fab vertical="center" horizontal="end" slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      
-        <!-- fab placed to the top and end and on the top edge of the content overlapping header -->
-        <ion-fab vertical="top" horizontal="end" edge slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="person"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      
-        <!-- fab placed to the bottom and start and on the bottom edge of the content overlapping footer with a list to the right -->
-        <ion-fab vertical="bottom" horizontal="start" edge slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="settings"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list side="end">
-            <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
-      
-        <!-- fab placed in the center of the content with a list on each side -->
-        <ion-fab vertical="center" horizontal="center" slot="fixed">
-          <ion-fab-button>
-            <ion-icon name="share"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list side="top">
-            <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
-          </ion-fab-list>
-          <ion-fab-list side="bottom">
-            <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-          </ion-fab-list>
-          <ion-fab-list side="start">
-            <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-          </ion-fab-list>
-          <ion-fab-list side="end">
-            <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
-      </ion-content>
-      
+  <ion-content>
+
+    <ion-list>
+      <ion-list-header>
+        Algumas dicas para sua foto:
+      </ion-list-header>
+
+
+      <ion-item>
+        <ion-label>Centralize os objetos em sua foto</ion-label>
+        <p slot="start">1. </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Lorem Ipsum is simply dummy text</ion-label>
+        <p slot="start">2. </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Lorem Ipsum is simply dummy text</ion-label>
+        <p slot="start">3. </p>
+      </ion-item>
+
+    </ion-list>
+
+    <img [src]="base64Image" *ngIf="base64Image">
+
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button color="danger" (click)="openCamera()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-content>
 
 </ion-content>
+
+<!-- <ion-footer no-border>
+  <ion-toolbar color="purple">
+    <ion-button expand="full" text-uppercase>Full Button</ion-button>
+  </ion-toolbar>
+</ion-footer> -->
