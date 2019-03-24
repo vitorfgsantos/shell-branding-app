@@ -7,7 +7,7 @@ import { PROVIDERS, ProvidersType } from '../../constants';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
+  searchTerm: string = '';
   public providers: ProvidersType = [];
 
   constructor() {
@@ -15,5 +15,15 @@ export class ListPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  filterProvider(ev) {
+    let term = ev.target.value;
+
+    if (term && term.trim() !== '') {
+      this.providers = PROVIDERS.filter(p => p.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()));
+    } else {
+      this.providers = PROVIDERS;
+    }
   }
 }
