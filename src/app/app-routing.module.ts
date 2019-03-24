@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'audit', loadChildren: './audit/audit.module#AuditPageModule' },
+  { path: 'audit/stations', loadChildren: './audit/stations/stations.module#StationsPageModule' },
+  { path: 'audit/pista', loadChildren: './audit/pista/pista.module#PistaPageModule' },
+  { path: 'audit/select', loadChildren: './audit/select/select.module#SelectPageModule' }
 ];
 
 @NgModule({
