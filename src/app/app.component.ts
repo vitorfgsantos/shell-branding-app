@@ -14,25 +14,25 @@ export class AppComponent {
     url: '/home',
     icon: 'home'
   }, {
-    title: 'Catálogo de Fornecedores',
-    url: '/list',
-    icon: 'list'
-  }, {
     title: 'Meus postos',
     url: '/stations',
     icon: 'pin'
+  }, {
+    title: 'Programa Valoriza',
+    url: '/rewards',
+    icon: 'trophy'
   }, {
     title: 'Auditoria',
     url: '/audit',
     icon: 'megaphone'
   }, {
+    title: 'Catálogo de Fornecedores',
+    url: '/list',
+    icon: 'list'
+  }, {
     title: 'Manuais',
     url: '/manuals',
     icon: 'book'
-  }, {
-    title: 'Programa Valoriza',
-    url: '/rewards',
-    icon: 'trophy'
   }, {
     title: 'Suporte',
     url: '/support',
