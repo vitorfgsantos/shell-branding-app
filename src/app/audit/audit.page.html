@@ -1,23 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Auditoria</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Auditoria
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
-
-  <ion-card routerLink="/audit/pista">
-    <img src="http://inovacon.ind.br/wp-content/uploads/2017/08/tim.jpg">
-    <ion-card-header>
-      <ion-card-title text-center>Pista</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card routerLink="/audit/pista">
-    <img src="http://gruposaodomingos.com.br/site/wp-content/uploads/2014/01/FJS_7574.jpg">
-    <ion-card-header>
-      <ion-card-title text-center>Loja Select</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
+  <div>
+    <button class="tab" (click)="onTabClick('pending')">Pendentes</button>
+    <button class="tab" (click)="onTabClick('completed')">Concluídos</button>
+  </div>
+  <div>
+    <div *ngIf="tab === 'pending'">
+      <ion-list>
+        <ion-item *ngFor="let pending of pendingList" [routerLink]="'/audit/'+pending.id">
+          <ion-label>{{pending.title}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="tab === 'completed'">
+      <ion-list>
+        <ion-item *ngFor="let completed of completedList" [routerLink]="'/audit/'+completed.id">
+          <ion-label>{{completed.title}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>
