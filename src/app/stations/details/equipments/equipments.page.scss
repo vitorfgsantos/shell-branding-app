@@ -1,0 +1,15 @@
+.container {
+  padding: 16px;
+}
+
+.image {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.search {
+  background-color: var(--ion-color-secondary);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 4px;
+}

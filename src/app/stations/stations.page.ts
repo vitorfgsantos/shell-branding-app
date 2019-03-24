@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { STATIONS } from '../../constants';
 
 @Component({
   selector: 'app-stations',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stations.page.scss'],
 })
 export class StationsPage implements OnInit {
+  stations: [];
 
   constructor() { }
 
   ngOnInit() {
+    this.stations = STATIONS;
   }
 
 }

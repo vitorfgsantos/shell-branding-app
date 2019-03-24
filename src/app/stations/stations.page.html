@@ -10,21 +10,12 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-card routerLink="/audit/pista">
-    <img src="/assets/audit/posto-pg.jpg">
-    <ion-card-header>
-      <ion-card-title text-center>Posto Vila Ema, São Paulo</ion-card-title>
-      <p>R. João Marchiori, 59 - Vila Guilhermina, São Paulo - SP, 03547-020</p>
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card routerLink="/audit/select">
-    <img src="/assets/audit/pista.jpg">
-    <ion-card-header>
-      <ion-card-title text-center>Posto Guilhermina, Praia Grande</ion-card-title>
-      <p>R. João Marchiori, 59 - Vila Guilhermina, São Paulo - SP, 03547-020</p>
-    </ion-card-header>
-  </ion-card>
-
+  <ion-list>
+    <ion-item *ngFor="let station of stations" [routerLink]="'/stations/'+station.id">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="station.image"></ion-img>
+      </ion-thumbnail>
+      <ion-label>{{station.name}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
