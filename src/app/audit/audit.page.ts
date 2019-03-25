@@ -26,12 +26,12 @@ export class AuditPage implements OnInit {
 
     this.pendingList = [{
       id: 1,
-      title: 'Auditoria 24/03/2019'
+      title: 'Adequação de Padrão 24/03/2019'
     }];
 
     this.completedList = [{
       id: 1,
-      title: 'Auditoria 20/03/2019'
+      title: 'Adequação de Padrão 20/03/2019'
     }];
   }
 

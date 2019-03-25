@@ -22,7 +22,7 @@ export class AppComponent {
     url: '/rewards',
     icon: 'trophy'
   }, {
-    title: 'Auditoria',
+    title: 'Adequação de Padrão',
     url: '/audit',
     icon: 'megaphone'
   }, {

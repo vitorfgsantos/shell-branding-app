@@ -19,7 +19,7 @@ export const STATIONS = [
     address: 'R. João Marchiori, 59 - Vila Guilhermina, São Paulo - SP, 03547-020',
     image: '/assets/audit/pista.jpg',
     ranking: 7,
-    point: 100,
+    points: 100,
     equipments: [
       { id: 1, name: 'Iluminação LED' },
       { id: 2, name: 'RVI' },
